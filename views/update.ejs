@@ -1,0 +1,29 @@
+<%-include("partials/header") -%>
+
+</head>
+<body>
+    <div class="container">
+		<a class="btn btn-primary" style="margin-bottom:5px" href="/users">Go back to all users</a><br>
+        <div class="thumbnail">
+			<div class="caption">
+				<h2>
+					<%= user.firstName %> <%= user.lastName %> - user details:
+				</h2>
+				<h4>First Name: <%= user.firstName %></h4>
+				<h4>Last Name: <%= user.lastName %></h4>
+				<h4>Email ID: <%= user.email %></h4>
+				<h4>Password: <%= user.password %></h4>
+			</div>
+
+            <form method="POST" action="/userUpdate/<%= user._id %>" id="register" class="input-group">
+				<h2>Update user details:</h2>
+				<span>New First Name: </span><input type="text" class="input-field" name="firstName" placeholder="<%= user.firstName %>" required><br>
+                <span>New Last Name: </span><input type="text" class="input-field" name="lastName" placeholder="<%= user.lastName %>"><br>
+                <span>Set New Password: </span><input type="password" minlength="8" name="password" class="input-field" placeholder="" required><br>
+                <span>Confirm New Password: </span><input type="password" minlength="8" name="passCheck" class="input-field" placeholder="" required><br>
+				<br>
+                <button class="submit-btn btn-success" >Update</button>
+            </form>
+        </div>
+    </div>
+<%-include("partials/footer") -%>

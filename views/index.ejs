@@ -1,0 +1,25 @@
+<%-include("partials/header") -%>
+<div class="container">
+	<header class="jumbotron">
+		<div class="container">
+			<h1>Welcome To LeewayHertz Tasks</h1>
+			<a class="btn btn-success btn-large" href="/users/new">Add a new User</a>
+		</div>
+	</header>	
+	
+	<div class="row text-center" style="display:flex; flex-wrap: wrap;">
+		<% users.forEach(function(user){ %>
+			<div class="col-md-3 col-sm-6">
+				<div class="thumbnail">
+					<div class="caption">
+						<h3> <%= user.firstName %> <%= user.lastName %>  </h3>
+						<h4> <%= user.email %> </h4>
+						<a class="btn btn-primary" href="/users/update/<%= user._id %>">View and Update User</a><br>
+						<a class="btn btn-danger" style="margin-top:5px" href="/users/delete/<%= user._id %>">Delete User</a>
+					</div>
+				</div>
+			</div>
+		<% }) %>
+	</div>
+</div>
+<%- include("partials/footer") -%>
